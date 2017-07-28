@@ -1,18 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <title>JavaScript counter</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Site Counter</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body>
-  <div>
-    <span id="counter">0</span><br/>
-    <input type="button" onclick="buttonCounter()" value="Count" />
+
+  <div class="container">
+    <div class="header clearfix">
+      <nav>
+
+      </nav>
+      <h3 class="text-muted">Counter</h3>
+    </div>
+
+    <div class="jumbotron">
+      <h2>Click counter button to see counter increment</h2>
+      <p class="lead">This is my first web app</p>
+      <button type="submit" class="btn btn-primary" onclick="buttonCounter()">Increment <span id="counter" class="badge">42</span></li></button>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2017 Counter, Inc.</p>
+    </footer>
+
   </div>
-  <script type="text/javascript" src="app.js"></script>
-  </script>
+  <!-- /container -->
+  <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
 
 </html>
