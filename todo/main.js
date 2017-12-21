@@ -13,13 +13,13 @@
         const text = document.createTextNode(input.value);
         const markItemToDelete = document.createElement('input');
 
-        markItemToDelete.setAttribute('type','checkbox');
+        markItemToDelete.setAttribute('type', 'checkbox');
         console.log(markItemToDelete);
         // set and append elements
-        li.textContent = text.nodeValue;        
+        li.textContent = text.nodeValue;
         li.appendChild(markItemToDelete);
         todoList.appendChild(li);
-        input.value='';
+        input.value = '';
     }
 
     function deleteItem(event) {
@@ -27,6 +27,11 @@
         const elementClicked = event.target;
 
         console.log(elementClicked.nodeName);
-            todoList.removeChild(elementClicked.parentNode);
+
+        if (elementClicked.checked === true) {
+            elementClicked.parentNode.style.textDecoration = 'line-through';
+        } else {
+            elementClicked.parentNode.style.textDecoration = '';
+        }
     }
 })();
