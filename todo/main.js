@@ -19,6 +19,7 @@
         li.textContent = text.nodeValue;        
         li.appendChild(markItemToDelete);
         todoList.appendChild(li);
+        input.value='';
     }
 
     function deleteItem(event) {
