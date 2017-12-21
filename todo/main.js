@@ -11,23 +11,21 @@
         event.preventDefault();
         const li = document.createElement('li');
         const text = document.createTextNode(input.value);
-        const span = document.createElement('span');
-        const x = document.createTextNode('x');
+        const markItemToDelete = document.createElement('input');
 
+        markItemToDelete.setAttribute('type','checkbox');
+        console.log(markItemToDelete);
         // set and append elements
-        li.textContent = text.nodeValue;
-        span.textContent = x.nodeValue;
-        li.appendChild(span);
+        li.textContent = text.nodeValue;        
+        li.appendChild(markItemToDelete);
         todoList.appendChild(li);
     }
 
     function deleteItem(event) {
         // find the element clicked and delete its parent.
-        const clicked = event.target;
+        const elementClicked = event.target;
 
-        console.log(clicked.nodeName);
-        if (clicked.nodeName === 'SPAN') {
-            todoList.removeChild(clicked.parentNode);
-        }
+        console.log(elementClicked.nodeName);
+            todoList.removeChild(elementClicked.parentNode);
     }
 })();

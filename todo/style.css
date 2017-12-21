@@ -4,6 +4,6 @@ body {
     margin:auto;
 }
 
-span {
+li input {
     float: right;
 }
