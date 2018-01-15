@@ -2,6 +2,7 @@
   let totalNumberOfCells = 25;
   let cellsToHighlight = null;
   let footer = document.getElementById('footer');
+  let count=0;
 
   function Game() {
     const allCellsPositions = createGrid();
@@ -61,7 +62,7 @@
   }
 
   function isCorrectCell(i) {
-    // debugger;
+    
     const cellToHighlight = i.toString();
     for (let j = 0; j < cellsToHighlight.length; j++) {
       if (cellToHighlight === cellsToHighlight[j]) {
@@ -74,6 +75,14 @@
       this
         .classList
         .add('wrong');
+        count++;
+
+    console.log(count);
+    }
+    
+    if( count > 3){
+      clearGrid();
+      footer.innerHTML='Game Over';
     }
   }
 
