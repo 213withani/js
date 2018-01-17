@@ -37,11 +37,6 @@
     for (let m = 0; m < totalNumberOfCells; m++) {
       cell = document.createElement("div");
       cell.setAttribute("id", `${m}`);
-
-      // cell.addEventListener("click", function clickCorrectCell() {   var
-      // correctCell = isCorrectCell.bind(this);   correctCell(i);
-      // this.removeEventListener("click", clickCorrectCell); });
-
       allCellsPositions.push(`${m}`);
       grid.appendChild(cell);
     }
@@ -80,7 +75,7 @@
 
     for (i = 0; i < totalNumberOfCells; i++) {
       cellToClear = document.getElementById(i);
-      cellToClear.addEventListener('click', clickCorrectCell(i));
+      cellToClear.addEventListener('click', clickCorrectCell);
     }
   }
 
