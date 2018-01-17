@@ -1,13 +1,28 @@
 (function () {
   let totalNumberOfCells = 25;
   let cellsToHighlight = null;
-  let footer = document.getElementById('footer');
-  let count=0;
+  let footer = document.getElementById("footer");
+  let count = 0;
+  let i = 0; 
+  
+  const gameTransition = {
+    ready: "Ready",
+    recall: "Recall"
+  }
 
   function Game() {
-    const allCellsPositions = createGrid();
+    let allCellsPositions = [];
+
+    footer.innerHTML = gameTransition.ready;
+
+    allCellsPositions = createGrid();
+
     highlightCells(allCellsPositions);
-    setTimeout(() => clearGrid(), 5000);
+    //if (count <= 3) {
+      setTimeout(() => clearGrid(), 1000);
+
+      footer.innerHTML = gameTransition.recall;
+    //}
   }
 
   Game();
@@ -17,73 +32,92 @@
       grid = null;
     let allCellsPositions = [];
 
-    grid = document.querySelector('.wrapper');
+    grid = document.querySelector(".wrapper");
 
-    for (let i = 0; i < totalNumberOfCells; i++) {
-      cell = document.createElement('div');
-      cell.setAttribute('id', `${i}`);
+    for (let m = 0; m < totalNumberOfCells; m++) {
+      cell = document.createElement("div");
+      cell.setAttribute("id", `${m}`);
 
-      cell.addEventListener('click', function () {
-        var correctCell = isCorrectCell.bind(this);
-        correctCell(i);
-      });
+      // cell.addEventListener("click", function clickCorrectCell() {   var
+      // correctCell = isCorrectCell.bind(this);   correctCell(i);
+      // this.removeEventListener("click", clickCorrectCell); });
 
-      allCellsPositions.push(`${i}`);
+      allCellsPositions.push(`${m}`);
       grid.appendChild(cell);
     }
-
-    footer.innerHTML = 'Get Ready';
+    
     return allCellsPositions;
   }
 
   function highlightCells(allCellsPositions) {
-
     var cellToHighlight = null;
     cellsToHighlight = _.sampleSize(allCellsPositions, 6);
 
-    for (let i = 0; i < cellsToHighlight.length; i++) {
-      cellToHighlight = document.getElementById(cellsToHighlight[i]);
+    for (let k = 0; k < cellsToHighlight.length; k++) {
+      cellToHighlight = document.getElementById(cellsToHighlight[k]);
       cellToHighlight
         .classList
-        .add('active');
+        .add("active");
     }
   }
 
   function clearGrid() {
     let cellToClear = null;
 
-    for (let i = 0; i < totalNumberOfCells; i++) {
-      cellToClear = document.getElementById(i);
+    for (let l = 0; l < totalNumberOfCells; l++) {
+      cellToClear = document.getElementById(l);
       cellToClear
         .classList
-        .remove('active');
+        .remove("active");
     }
-    footer.innerHTML = "Recall";
+
+    allowUserToClickCells();
+    
+  }
+
+  function allowUserToClickCells() {
+    let cellToClear = null;
+
+    for (i = 0; i < totalNumberOfCells; i++) {
+      cellToClear = document.getElementById(i);
+      cellToClear.addEventListener('click', clickCorrectCell(i));
+    }
+  }
+
+  function clickCorrectCell() {
+    const correctCell = isCorrectCell.bind(this);
+    correctCell(i);
+  }
+
+  function disableCells() {
+    let cellToClear = null;
+
+    for (let j = 0; j < totalNumberOfCells; j++) {
+      cellToClear = document.getElementById(j);
+      cellToClear.removeEventListener("click", clickCorrectCell);
+    }
   }
 
   function isCorrectCell(i) {
-    
     const cellToHighlight = i.toString();
     for (let j = 0; j < cellsToHighlight.length; j++) {
       if (cellToHighlight === cellsToHighlight[j]) {
         this
           .classList
-          .add('correct');
+          .add("correct");
       }
     }
-    if (!this.classList.contains('correct')) {
+    
+    if (!this.classList.contains("correct")) {
       this
         .classList
-        .add('wrong');
-        count++;
-
-    console.log(count);
+        .add("wrong");
+      count++;
+      console.log(count);
     }
-    
-    if( count > 3){
-      clearGrid();
-      footer.innerHTML='Game Over';
+
+    if(count > 3){
+      disableCells()
     }
   }
-
 })();
