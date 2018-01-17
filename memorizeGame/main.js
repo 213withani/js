@@ -3,7 +3,7 @@
   let cellsToHighlight = null;
   let footer = document.getElementById("footer");
   let count = 0;
-  let i = 0; 
+  // let i = 0; 
   
   const gameTransition = {
     ready: "Ready",
@@ -73,9 +73,11 @@
   function allowUserToClickCells() {
     let cellToClear = null;
 
-    for (i = 0; i < totalNumberOfCells; i++) {
+    for (let i = 0; i < totalNumberOfCells; i++) {
+      
       cellToClear = document.getElementById(i);
-      cellToClear.addEventListener('click', clickCorrectCell);
+      cellToClear.addEventListener('click', clickCorrectCell.bind(cellToClear));
+    
     }
   }
 
@@ -89,7 +91,7 @@
 
     for (let j = 0; j < totalNumberOfCells; j++) {
       cellToClear = document.getElementById(j);
-      cellToClear.removeEventListener("click", clickCorrectCell);
+      cellToClear.removeEventListener("click", this.clickCorrectCell);
     }
   }
 
