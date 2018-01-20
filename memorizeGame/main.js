@@ -2,23 +2,28 @@
   let totalNumberOfCells = 25;
   let cellsToHighlight = null;
   let footer = document.getElementById("footer");
-  let count = 0;
+  let wrongChoice = 0;
+  let correctChoice = 0;
   let activeCell = [];
   let cellToClear = [];
+
   const gameTransition = {
     ready: "Ready",
     recall: "Recall",
     over: "Game Over"
   }
+
   function Game() {
     let allCellsPositions = [];
-    header.innerHTML="Memorize Game: You can only get 4 wrong answers.";
+    header.innerHTML = "Memorize Game: You can only get 4 wrong answers.";
+
     allCellsPositions = createGrid();
     footer.innerHTML = gameTransition.ready;
     highlightCells(allCellsPositions);
     setTimeout(() => clearGrid(), 1000);
   }
   Game();
+
   function createGrid() {
     let cell = null,
       grid = null;
@@ -32,6 +37,7 @@
     }
     return allCellsPositions;
   }
+
   function highlightCells(allCellsPositions) {
     var cellToHighlight = null;
     cellsToHighlight = _.sampleSize(allCellsPositions, 6);
@@ -42,6 +48,7 @@
         .add("active");
     }
   }
+
   function clearGrid() {
     let cellToClear = null;
     for (let l = 0; l < totalNumberOfCells; l++) {
@@ -51,9 +58,10 @@
         .remove("active");
     }
     allowUserToClickCells();
-    
+
     footer.innerHTML = gameTransition.recall;
   }
+
   function allowUserToClickCells() {
     for (let i = 0; i < totalNumberOfCells; i++) {
       cellToClear.push(document.getElementById(i));
@@ -62,10 +70,12 @@
       cellToClear[i].addEventListener('click', activeCell[i]);
     }
   }
+
   function clickCorrectCell(num) {
     const correctCell = isCorrectCell.bind(this);
     correctCell(num);
   }
+
   function disableCells() {
     console.log(activeCell);
     for (let j = 0; j < totalNumberOfCells; j++) {
@@ -74,6 +84,7 @@
       cellToClear[j].removeEventListener('click', activeCell[j]);
     }
   }
+
   function isCorrectCell(num) {
     console.log(this);
     const cellToHighlight = num.toString();
@@ -82,6 +93,7 @@
         this
           .classList
           .add("correct");
+          correctChoice++;
         console.log("correct");
       }
     }
@@ -89,14 +101,18 @@
       this
         .classList
         .add("wrong");
-      console.log("wrong");
-      count++;
-      console.log(count);
+      
+      wrongChoice++;
     }
-    if (count > 3) {
-      // debugger;
+    if (wrongChoice > 3 ) {
+      
       disableCells();
       footer.innerHTML = gameTransition.over;
+    }
+    if (correctChoice === 6 ) {
+      
+      disableCells();
+      footer.innerHTML = "Winner";
     }
   }
 })();
