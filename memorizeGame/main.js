@@ -66,7 +66,6 @@
     for (let i = 0; i < totalNumberOfCells; i++) {
       cellToClear.push(document.getElementById(i));
       activeCell[i] = clickCorrectCell.bind(cellToClear[i], i);
-      console.log(activeCell);
       cellToClear[i].addEventListener('click', activeCell[i]);
     }
   }
@@ -77,16 +76,13 @@
   }
 
   function disableCells() {
-    console.log(activeCell);
     for (let j = 0; j < totalNumberOfCells; j++) {
-      //cellToClear = document.getElementById(j);
-      console.log(cellToClear[j]);
       cellToClear[j].removeEventListener('click', activeCell[j]);
     }
   }
 
   function isCorrectCell(num) {
-    console.log(this);
+    
     const cellToHighlight = num.toString();
     for (let j = 0; j < cellsToHighlight.length; j++) {
       if (cellToHighlight === cellsToHighlight[j]) {
@@ -94,7 +90,7 @@
           .classList
           .add("correct");
           correctChoice++;
-        console.log("correct");
+        
       }
     }
     if (!this.classList.contains("correct")) {
