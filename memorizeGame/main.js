@@ -20,9 +20,20 @@
     allCellsPositions = createGrid();
     footer.innerHTML = gameTransition.ready;
     highlightCells(allCellsPositions);
-    setTimeout(() => clearGrid(), 1000);
+    setTimeout(() => clearGrid('active'), 1000);
+    startGamePlay();
   }
   Game();
+
+  function startGamePlay() {
+    const letUserPlay=document.getElementById('play');
+    letUserPlay.addEventListener('click',function () {
+      clearGrid('active');
+      clearGrid('correct');
+      clearGrid('wrong');
+      Game();
+    });
+  }
 
   function createGrid() {
     let cell = null,
@@ -49,13 +60,14 @@
     }
   }
 
-  function clearGrid() {
+  function clearGrid(cellStatus) {
     let cellToClear = null;
+    
     for (let l = 0; l < totalNumberOfCells; l++) {
       cellToClear = document.getElementById(l);
       cellToClear
         .classList
-        .remove("active");
+        .remove(cellStatus);
     }
     allowUserToClickCells();
 
