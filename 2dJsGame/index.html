@@ -50,7 +50,9 @@
             if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
                 dx = -dx;
             }
-
+            // If the y value of the ball position is lower than zero
+            // If the ball's y position is greater than the height of the Canvas
+            // Reverse the movement of the ball.
             if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
                 dy = -dy;
             }
