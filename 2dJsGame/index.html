@@ -43,16 +43,19 @@
         }
 
         function draw() {
+            // CanvasRenderingContext2D.clearRect() erasing any previously drawn content.
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             drawBall();
 
             if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
                 dx = -dx;
             }
+
             if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
                 dy = -dy;
             }
 
+            //Ball will be painted in the new position on every update.
             x += dx;
             y += dy;
         }
