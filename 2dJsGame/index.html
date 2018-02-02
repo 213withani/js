@@ -33,9 +33,12 @@
         var dx = 2;
         var dy = -2;
 
+        // Here we're defining the height and width of the paddle, 
+        // and its starting point on the x axis
         var paddleHeight = 10;
         var paddleWidth = 75;
         var paddleX = (canvas.width - paddleWidth) / 2;
+        var paddleY = canvas.height - paddleHeight;
 
         var rightPressed = false;
         var leftPressed = false;
@@ -50,8 +53,10 @@
         }
 
         function drawPaddle() {
+            //x=paddleX, y=canvas.height - paddleHeight
+            // x=paddleWidth y=paddleHeight
             ctx.beginPath();
-            ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+            ctx.rect(paddleX, paddleY, paddleWidth, paddleHeight);
             ctx.fillStyle = "#0095DD";
             ctx.fill();
             ctx.closePath();
@@ -63,7 +68,7 @@
             drawBall();
 
             drawPaddle();
-            
+
             if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
                 dx = -dx;
             }
