@@ -75,13 +75,18 @@
             // If the y value of the ball position is lower than zero
             // If the ball's y position is greater than the height of the Canvas
             // Reverse the movement of the ball.
-            if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
+            if(y + dy < ballRadius) {
                 dy = -dy;
+            } else if(y + dy > canvas.height-ballRadius) {
+                alert("GAME OVER");
+                document.location.reload();
             }
 
             //Ball will be painted in the new position on every update.
             x += dx;
             y += dy;
+
+            // move the paddle only within the boundaries of the Canvas
             if (rightPressed && paddleX < canvas.width - paddleWidth) {
                 paddleX += 7;
             } else if (leftPressed && paddleX > 0) {
