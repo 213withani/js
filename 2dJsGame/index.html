@@ -27,9 +27,10 @@
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
         var ballRadius = 10;
-        // bottom center
-        var x = canvas.width / 2;
-        var y = canvas.height - 30;
+        // Starting position is bottom center: 
+        // If we wanted the left corent it would be x=10, y=canvas.height - 10
+        var x = ballRadius;
+        var y = canvas.height - ballRadius;
         var dx = 2;
         var dy = -2;
 
@@ -63,30 +64,34 @@
         }
 
         function draw() {
+            var widthOfWall=x + dx;
+            var canvasWidth=canvas.width - ballRadius;
             // CanvasRenderingContext2D.clearRect() erasing any previously drawn content.
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawBall();
 
+            drawBall();
             drawPaddle();
 
-            if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+            if (widthOfWall > canvasWidth || widthOfWall < ballRadius) {
                 dx = -dx;
             }
+
+            var heightOfWall=y+dy;
             // If the y value of the ball position is lower than zero
             // If the ball's y position is greater than the height of the Canvas
             // Reverse the movement of the ball.
-            if(y + dy < ballRadius) {
+            if(heightOfWall < ballRadius) {
                 dy = -dy;
-            } else if(y + dy > canvas.height-ballRadius) {
+            } else if(heightOfWall > canvas.height-ballRadius) {
                 alert("GAME OVER");
                 document.location.reload();
             }
 
-            //Ball will be painted in the new position on every update.
+            //Ball will be painted in new position on every update.
             x += dx;
             y += dy;
 
-            // move the paddle only within the boundaries of the Canvas
+            // Move the paddle only within the boundaries of the Canvas.
             if (rightPressed && paddleX < canvas.width - paddleWidth) {
                 paddleX += 7;
             } else if (leftPressed && paddleX > 0) {
@@ -112,7 +117,7 @@
             }
         }
 
-        setInterval(draw, 10);
+        setInterval(draw, 10000);
     </script>
 
 </body>
