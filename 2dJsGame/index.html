@@ -64,8 +64,8 @@
         }
 
         function draw() {
-            var widthOfWall=x + dx;
-            var canvasWidth=canvas.width - ballRadius;
+            var widthOfWall = x + dx;
+            var canvasWidth = canvas.width - ballRadius;
             // CanvasRenderingContext2D.clearRect() erasing any previously drawn content.
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -76,15 +76,19 @@
                 dx = -dx;
             }
 
-            var heightOfWall=y+dy;
+            var heightOfWall = y + dy;
             // If the y value of the ball position is lower than zero
             // If the ball's y position is greater than the height of the Canvas
             // Reverse the movement of the ball.
-            if(heightOfWall < ballRadius) {
+            if (heightOfWall < ballRadius) {
                 dy = -dy;
-            } else if(heightOfWall > canvas.height-ballRadius) {
-                alert("GAME OVER");
-                document.location.reload();
+            } else if (heightOfWall > canvas.height - ballRadius) {
+                if (x > paddleX && x < paddleX + paddleWidth) {
+                    dy = -dy;
+                } else {
+                    alert("GAME OVER");
+                    document.location.reload();
+                }
             }
 
             //Ball will be painted in new position on every update.
@@ -117,7 +121,7 @@
             }
         }
 
-        setInterval(draw, 10000);
+        setInterval(draw, 10);
     </script>
 
 </body>
