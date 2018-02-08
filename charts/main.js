@@ -1,8 +1,9 @@
+let chartDataLabels = [];
+let chartDataPoints = [];
 const apiButton = document.getElementById("chuck");
 const outputDiv = document.getElementById("output");
 
-const apiURL =
-  "http://54.244.200.105/readings?gasName=all&startDateTime=dayago&endDateTime=now";
+const apiURL = "http://54.244.200.105/readings?gasName=methane";
 
 apiButton.addEventListener(
   "click",
@@ -23,45 +24,64 @@ apiButton.addEventListener(
 );
 
 function displayData(data) {
-  outputDiv.innerText = console.log(data);
+  
+  console.log(data[0].instant);
+  console.log(data[0].reading);
+
+  // const methane =data.filter(el => el.gasName === 'methane');
+
+  data.forEach(function(label) {
+    chartDataLabels.push(label.instant);
+    chartDataPoints.push(label.reading);
+  });
+  
+  outputDiv.innerText = JSON.stringify(chartDataLabels);
 }
+
 const CHART = document.getElementById("lineChart");
+
+console.log(chartDataLabels);
 
 let lineChart = new Chart(CHART, {
   type: "line",
   data: {
-    labels: ["2018-02-02T05:57:04Z", "2018-07-02T05:58:04Z", "2018-010-02T05:57:04Zmar"],
-    datasets: [{
-      label: "My First dataset",
-      fill: false,
-      borderColor: 'lightgreen',
-      data: [2.375746290045407e-18, 3.827426164227489e-17, 5.827426164227489e-17]
-    }]
+    labels: chartDataLabels,
+    datasets: [
+      {
+        label: "My First dataset",
+        fill: false,
+        borderColor: "lightgreen",
+        data: chartDataPoints
+      }
+    ]
   },
   options: {
     title: {
       text: "Chart.js Time Scale"
     },
     scales: {
-      xAxes: [{
-        type: "time",
-        time: {
-          format: 'YYYY-MM-DD HH:mm',
-          // round: 'day'
-          tooltipFormat: 'll HH:mm'
-        },
-        scaleLabel: {
-          display: true,
-          labelString: 'Date'
+      xAxes: [
+        {
+          type: "time",
+          time: {
+            format: "YYYY-MM-DD HH:mm",
+            // round: 'day'
+            tooltipFormat: "ll HH:mm"
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "Date"
+          }
         }
-      }, ],
-      yAxes: [{
-        scaleLabel: {
-          display: true,
-          labelString: 'value'
+      ],
+      yAxes: [
+        {
+          scaleLabel: {
+            display: true,
+            labelString: "value"
+          }
         }
-      }]
-    },
+      ]
+    }
   }
-
 });
