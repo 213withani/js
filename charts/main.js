@@ -30,11 +30,16 @@ function displayData(data) {
 
   // const methane =data.filter(el => el.gasName === 'methane');
 
-  data.forEach(function(label) {
-    chartDataLabels.push(label.instant);
-    chartDataPoints.push(label.reading);
-  });
+  // data.forEach(function(label) {
+  //   chartDataLabels.push(label.instant);
+  //   chartDataPoints.push(label.reading);
+  // });
   
+  data.map(function (el) {
+    chartDataLabels.push(el.instant);
+    chartDataPoints.push(el.reading);
+  });
+
   outputDiv.innerText = JSON.stringify(chartDataLabels);
 }
 
