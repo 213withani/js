@@ -1,4 +1,4 @@
-(function () {
+(function() {
   let totalNumberOfCells = 25;
   let cellsToHighlight = null;
   let footer = document.getElementById("footer");
@@ -11,7 +11,7 @@
     ready: "Ready",
     recall: "Recall",
     over: "Game Over"
-  }
+  };
 
   function Game() {
     let allCellsPositions = [];
@@ -20,17 +20,17 @@
     allCellsPositions = createGrid();
     footer.innerHTML = gameTransition.ready;
     highlightCells(allCellsPositions);
-    setTimeout(() => clearGrid('active'), 1000);
+    setTimeout(() => clearGrid("active"), 1000);
     startGamePlay();
   }
   Game();
 
   function startGamePlay() {
-    const letUserPlay=document.getElementById('play');
-    letUserPlay.addEventListener('click',function () {
-      clearGrid('active');
-      clearGrid('correct');
-      clearGrid('wrong');
+    const letUserPlay = document.getElementById("play");
+    letUserPlay.addEventListener("click", function() {
+      clearGrid("active");
+      clearGrid("correct");
+      clearGrid("wrong");
       Game();
     });
   }
@@ -54,20 +54,16 @@
     cellsToHighlight = _.sampleSize(allCellsPositions, 6);
     for (let k = 0; k < cellsToHighlight.length; k++) {
       cellToHighlight = document.getElementById(cellsToHighlight[k]);
-      cellToHighlight
-        .classList
-        .add("active");
+      cellToHighlight.classList.add("active");
     }
   }
 
   function clearGrid(cellStatus) {
     let cellToClear = null;
-    
+
     for (let l = 0; l < totalNumberOfCells; l++) {
       cellToClear = document.getElementById(l);
-      cellToClear
-        .classList
-        .remove(cellStatus);
+      cellToClear.classList.remove(cellStatus);
     }
     allowUserToClickCells();
 
@@ -78,7 +74,7 @@
     for (let i = 0; i < totalNumberOfCells; i++) {
       cellToClear.push(document.getElementById(i));
       activeCell[i] = clickCorrectCell.bind(cellToClear[i], i);
-      cellToClear[i].addEventListener('click', activeCell[i]);
+      cellToClear[i].addEventListener("click", activeCell[i]);
     }
   }
 
@@ -89,36 +85,27 @@
 
   function disableCells() {
     for (let j = 0; j < totalNumberOfCells; j++) {
-      cellToClear[j].removeEventListener('click', activeCell[j]);
+      cellToClear[j].removeEventListener("click", activeCell[j]);
     }
   }
 
   function isCorrectCell(num) {
-    
     const cellToHighlight = num.toString();
     for (let j = 0; j < cellsToHighlight.length; j++) {
       if (cellToHighlight === cellsToHighlight[j]) {
-        this
-          .classList
-          .add("correct");
-          correctChoice++;
-        
+        this.classList.add("correct");
+        correctChoice++;
       }
     }
     if (!this.classList.contains("correct")) {
-      this
-        .classList
-        .add("wrong");
-      
+      this.classList.add("wrong");
       wrongChoice++;
     }
-    if (wrongChoice > 3 ) {
-      
+    if (wrongChoice > 3) {
       disableCells();
       footer.innerHTML = gameTransition.over;
     }
-    if (correctChoice === 6 ) {
-      
+    if (correctChoice === 6) {
       disableCells();
       footer.innerHTML = "Winner";
     }
