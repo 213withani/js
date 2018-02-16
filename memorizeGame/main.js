@@ -11,12 +11,12 @@
     ready: "Ready",
     recall: "Recall",
     over: "Game Over",
-    winner:"Winner"
+    winner: "Winner"
   };
 
   function Game() {
     let allCellsCreatedInGrid = [];
-  //   cellsToHighlight = null;
+    //   cellsToHighlight = null;
     header.innerHTML = "Memorize Game: You can only get 4 wrong answers.";
 
     allCellsCreatedInGrid = createGridWithId();
@@ -24,27 +24,26 @@
     highlightActiveCells(allCellsCreatedInGrid);
     setTimeout(() => clearStatusInGrid("active"), 1000);
     allowUserToClickCells();
-    // deleteGrid();
   }
-  
+
   startGamePlay();
 
   function startGamePlay() {
     const letUserPlay = document.getElementById("playBtn");
     letUserPlay.addEventListener("click", function() {
       Game();
+      
     });
   }
 
   function createGridWithId() {
     let cell = null,
-        grid = [];
+      grid = [];
     let createCellsPositions = [];
 
     grid = document.querySelector(".grid");
 
     for (let cellId = 0; cellId < totalNumberOfCells; cellId++) {
-
       cell = document.createElement("div");
       cell.setAttribute("id", `${cellId}`);
       createCellsPositions.push(`${cellId}`);
@@ -55,9 +54,9 @@
 
   function highlightActiveCells(allCellsPositions) {
     var cellToHighlight = [];
-    
+
     cellsToHighlight = _.sampleSize(allCellsPositions, 6);
-    
+
     for (let k = 0; k < cellsToHighlight.length; k++) {
       cellToHighlight = document.getElementById(cellsToHighlight[k]);
       cellToHighlight.classList.add("active");
@@ -65,9 +64,11 @@
   }
 
   function clearStatusInGrid(cellStatus) {
-
-    for (let cellIdToClear = 0; cellIdToClear < totalNumberOfCells; cellIdToClear++) {
-
+    for (
+      let cellIdToClear = 0;
+      cellIdToClear < totalNumberOfCells;
+      cellIdToClear++
+    ) {
       cellToClear = document.getElementById(cellIdToClear);
       cellToClear.classList.remove(cellStatus);
     }
@@ -76,20 +77,23 @@
   }
 
   function deleteGrid() {
-
-    for (let cellIdToDelete = 0; cellIdToDelete < totalNumberOfCells; cellIdToDelete++) {
-
+    for (
+      let cellIdToDelete = 0;
+      cellIdToDelete < totalNumberOfCells;
+      cellIdToDelete++
+    ) {
       cellToClear = document.getElementById(cellIdToDelete);
       cellToClear.remove();
     }
   }
 
   function allowUserToClickCells() {
+    let clickableCell=[];
+    
     for (let i = 0; i < totalNumberOfCells; i++) {
-        
-      cellToClear.push(document.getElementById(i));
-      activeCell[i] = clickCorrectCell.bind(cellToClear[i], i);
-      cellToClear[i].addEventListener("click", activeCell[i]);
+      clickableCell.push(document.getElementById(i));
+      activeCell[i] = clickCorrectCell.bind(clickableCell[i], i);
+      clickableCell[i].addEventListener("click", activeCell[i]);
     }
   }
 
@@ -99,8 +103,11 @@
   }
 
   function disableCells() {
-    for (let j = 0; j < totalNumberOfCells; j++) {
-      cellToClear[j].removeEventListener("click", activeCell[j]);
+    let cellToRemoveEvent = [];
+
+    for (let cell = 0; cell < totalNumberOfCells; cell++) {
+      cellToRemoveEvent = document.getElementById(cell);
+      cellToRemoveEvent.removeEventListener("click", activeCell[cell]);
     }
   }
 
@@ -118,10 +125,12 @@
     }
     if (wrongChoice > 3) {
       disableCells();
+      setTimeout(() => deleteGrid(), 2000);
       footer.innerHTML = gameTransition.over;
     }
     if (correctChoice === 6) {
       disableCells();
+      setTimeout(() => deleteGrid(), 2000);
       footer.innerHTML = gameTransition.winner;
     }
   }
