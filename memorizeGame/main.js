@@ -32,7 +32,6 @@
     const letUserPlay = document.getElementById("playBtn");
     letUserPlay.addEventListener("click", function() {
       Game();
-      
     });
   }
 
@@ -77,6 +76,10 @@
   }
 
   function deleteGrid() {
+    correctChoice = 0;
+    wrongChoice = 0;
+    footer.innerHTML = "";
+    
     for (
       let cellIdToDelete = 0;
       cellIdToDelete < totalNumberOfCells;
@@ -88,8 +91,8 @@
   }
 
   function allowUserToClickCells() {
-    let clickableCell=[];
-    
+    let clickableCell = [];
+
     for (let i = 0; i < totalNumberOfCells; i++) {
       clickableCell.push(document.getElementById(i));
       activeCell[i] = clickCorrectCell.bind(clickableCell[i], i);
@@ -124,11 +127,15 @@
       wrongChoice++;
     }
     if (wrongChoice > 3) {
+      // correctChoice=0;
+      // wrongChoice=0;
       disableCells();
       setTimeout(() => deleteGrid(), 2000);
       footer.innerHTML = gameTransition.over;
     }
     if (correctChoice === 6) {
+      // correctChoice=0;
+      // wrongChoice=0;
       disableCells();
       setTimeout(() => deleteGrid(), 2000);
       footer.innerHTML = gameTransition.winner;

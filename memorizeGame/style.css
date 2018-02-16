@@ -23,3 +23,15 @@
   .grid .wrong{
     background-color:red;
   }
+
+  #header {
+    margin: 10px;
+    padding: 10px;
+    font-size: 2em;
+  }
+
+  button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 4em;
+  }
