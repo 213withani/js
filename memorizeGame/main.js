@@ -24,17 +24,14 @@
     highlightActiveCells(allCellsCreatedInGrid);
     setTimeout(() => clearStatusInGrid("active"), 1000);
     allowUserToClickCells();
-  //   startGamePlay();
+    // deleteGrid();
   }
-  // Game();
+  
   startGamePlay();
 
   function startGamePlay() {
     const letUserPlay = document.getElementById("playBtn");
     letUserPlay.addEventListener("click", function() {
-      // clearStatusInGrid("active");
-      // clearStatusInGrid("correct");
-      // clearStatusInGrid("wrong");
       Game();
     });
   }
@@ -68,7 +65,6 @@
   }
 
   function clearStatusInGrid(cellStatus) {
-    let cellToClear = null;
 
     for (let cellIdToClear = 0; cellIdToClear < totalNumberOfCells; cellIdToClear++) {
 
@@ -77,6 +73,15 @@
     }
 
     footer.innerHTML = gameTransition.recall;
+  }
+
+  function deleteGrid() {
+
+    for (let cellIdToDelete = 0; cellIdToDelete < totalNumberOfCells; cellIdToDelete++) {
+
+      cellToClear = document.getElementById(cellIdToDelete);
+      cellToClear.remove();
+    }
   }
 
   function allowUserToClickCells() {

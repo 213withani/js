@@ -9,7 +9,7 @@
   
   .grid div {
     background-color: lightgray;
-    border: 10px solid orchid;
+    border: .5px solid orchid;
   }
   
   .grid .active{
