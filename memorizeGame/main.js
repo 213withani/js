@@ -30,6 +30,8 @@
 
   function startGamePlay() {
     const letUserPlay = document.getElementById("playBtn");
+
+    header.innerHTML = labels.instructions;
     letUserPlay.addEventListener("click", function() {
       Game();
     });
