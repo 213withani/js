@@ -7,20 +7,20 @@
   let activeCell = [];
   let cellToClear = [];
 
-  const gameTransition = {
-    ready: "Ready",
-    recall: "Recall",
-    over: "Game Over",
-    winner: "Winner"
+  const labels = {
+    instructions: "Memorize Game: You can only get 4 wrong answers.",
+    gameReady: "Ready",
+    gameRecall: "Recall",
+    gameOver: "Game Over",
+    gameWinner: "Winner"
   };
 
   function Game() {
     let allCellsCreatedInGrid = [];
-    //   cellsToHighlight = null;
-    header.innerHTML = "Memorize Game: You can only get 4 wrong answers.";
 
-    allCellsCreatedInGrid = createGridWithId();
-    footer.innerHTML = gameTransition.ready;
+    header.innerHTML = labels.instructions;
+    allCellsCreatedInGrid = createGrid();
+    footer.innerHTML = labels.gameReady;
     highlightActiveCells(allCellsCreatedInGrid);
     setTimeout(() => clearStatusInGrid("active"), 1000);
     allowUserToClickCells();
@@ -35,7 +35,7 @@
     });
   }
 
-  function createGridWithId() {
+  function createGrid() {
     let cell = null,
       grid = [];
     let createCellsPositions = [];
@@ -72,7 +72,7 @@
       cellToClear.classList.remove(cellStatus);
     }
 
-    footer.innerHTML = gameTransition.recall;
+    footer.innerHTML = labels.gameRecall;
   }
 
   function deleteGrid() {
@@ -127,18 +127,14 @@
       wrongChoice++;
     }
     if (wrongChoice > 3) {
-      // correctChoice=0;
-      // wrongChoice=0;
       disableCells();
       setTimeout(() => deleteGrid(), 2000);
-      footer.innerHTML = gameTransition.over;
+      footer.innerHTML = labels.gameOver;
     }
     if (correctChoice === 6) {
-      // correctChoice=0;
-      // wrongChoice=0;
       disableCells();
       setTimeout(() => deleteGrid(), 2000);
-      footer.innerHTML = gameTransition.winner;
+      footer.innerHTML = labels.gameWinner;
     }
   }
 })();
