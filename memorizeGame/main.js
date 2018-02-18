@@ -64,10 +64,14 @@
 
     cellsToHighlight = _.sampleSize(allCellsPositions, 6);
 
-    for (let k = 0; k < cellsToHighlight.length; k++) {
-      cellToHighlight = document.getElementById(cellsToHighlight[k]);
-      cellToHighlight.classList.add("active");
-    }
+    // for (let k = 0; k < cellsToHighlight.length; k++) {
+    //   cellToHighlight = document.getElementById(cellsToHighlight[k]);
+    //   cellToHighlight.classList.add("active");
+    // }
+    cellsToHighlight.map(function (cell) {
+      document.getElementById(cell).classList.add("active");
+    });
+
   }
 
   function clearStatusInGrid(cellStatus) {
