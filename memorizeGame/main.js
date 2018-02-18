@@ -1,7 +1,7 @@
 (function() {
   let totalNumberOfCells = 25;
   let cellsToHighlight = null;
-  let footer = document.getElementById("footer");
+  
   let wrongChoice = 0;
   let correctChoice = 0;
   let activeCell = [];
@@ -15,12 +15,17 @@
     gameWinner: "Winner"
   };
 
+  function displayLabel(pos,lbl) {
+    document.getElementById(pos).innerHTML=lbl;
+  }
+
   function Game() {
     let allCellsCreatedInGrid = [];
 
-    header.innerHTML = labels.instructions;
+    // header.innerHTML = labels.instructions;
     allCellsCreatedInGrid = createGrid();
-    footer.innerHTML = labels.gameReady;
+    // footer.innerHTML = labels.gameReady;
+    displayLabel("footer",labels.gameReady);
     highlightActiveCells(allCellsCreatedInGrid);
     setTimeout(() => clearStatusInGrid("active"), 1000);
     allowUserToClickCells();
@@ -31,7 +36,8 @@
   function startGamePlay() {
     const letUserPlay = document.getElementById("playBtn");
 
-    header.innerHTML = labels.instructions;
+    // header.innerHTML = labels.instructions;
+    displayLabel("header",labels.instructions);
     letUserPlay.addEventListener("click", function() {
       Game();
     });
@@ -74,13 +80,15 @@
       cellToClear.classList.remove(cellStatus);
     }
 
-    footer.innerHTML = labels.gameRecall;
+    // footer.innerHTML = labels.gameRecall;
+    displayLabel("footer",labels.gameRecall);
   }
 
   function deleteGrid() {
     correctChoice = 0;
     wrongChoice = 0;
-    footer.innerHTML = "";
+    // footer.innerHTML = "";
+    displayLabel("footer","");
     
     for (
       let cellIdToDelete = 0;
@@ -131,12 +139,14 @@
     if (wrongChoice > 3) {
       disableCells();
       setTimeout(() => deleteGrid(), 2000);
-      footer.innerHTML = labels.gameOver;
+      // footer.innerHTML = labels.gameOver;
+      displayLabel("footer",labels.gameOver);
     }
     if (correctChoice === 6) {
       disableCells();
       setTimeout(() => deleteGrid(), 2000);
-      footer.innerHTML = labels.gameWinner;
+      // footer.innerHTML = labels.gameWinner;
+      displayLabel("footer",labels.gameWinner);
     }
   }
 })();
