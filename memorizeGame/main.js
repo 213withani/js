@@ -1,9 +1,12 @@
 (function() {
   let totalNumberOfCells = 25;
+  numberOfCellsToHighlight=6;
+
   let cellsToHighlight = null;
 
   let wrongChoice = 0;
   let correctChoice = 0;
+
   let activeCell = [];
   let cellToClear = [];
 
@@ -22,9 +25,7 @@
   function Game() {
     let allCellsCreatedInGrid = [];
 
-    // header.innerHTML = labels.instructions;
     allCellsCreatedInGrid = createGrid();
-    // footer.innerHTML = labels.gameReady;
     displayLabel("footer", labels.gameReady);
     highlightActiveCells(allCellsCreatedInGrid);
     setTimeout(() => clearStatusInGrid("active"), 1000);
@@ -36,9 +37,9 @@
   function startGamePlay() {
     const letUserPlay = document.getElementById("playBtn");
 
-    // header.innerHTML = labels.instructions;
     displayLabel("header", labels.instructions);
     letUserPlay.addEventListener("click", function() {
+      
       Game();
     });
   }
@@ -63,7 +64,7 @@
   function highlightActiveCells(allCellsPositions) {
     var cellToHighlight = [];
 
-    cellsToHighlight = _.sampleSize(allCellsPositions, 6);
+    cellsToHighlight = _.sampleSize(allCellsPositions, numberOfCellsToHighlight);
     cellsToHighlight.map(function(cell) {
       document.getElementById(cell).classList.add("active");
     });
@@ -124,13 +125,13 @@
 
   function isCorrectCell(num) {
     const cellToHighlight = num.toString();
-    
-    for (let j = 0; j < cellsToHighlight.length; j++) {
-      if (cellToHighlight === cellsToHighlight[j]) {
-        this.classList.add("correct");
-        correctChoice++;
-      }
-    }
+
+    cellsToHighlight.map((cell) => {
+      if (cellToHighlight === cell) {
+            this.classList.add("correct");
+            correctChoice++;
+          }
+    });
 
     if (!this.classList.contains("correct")) {
       this.classList.add("wrong");
