@@ -1,7 +1,7 @@
 (function() {
   let totalNumberOfCells = 25;
   let cellsToHighlight = null;
-  
+
   let wrongChoice = 0;
   let correctChoice = 0;
   let activeCell = [];
@@ -15,8 +15,8 @@
     gameWinner: "Winner"
   };
 
-  function displayLabel(pos,lbl) {
-    document.getElementById(pos).innerHTML=lbl;
+  function displayLabel(pos, lbl) {
+    document.getElementById(pos).innerHTML = lbl;
   }
 
   function Game() {
@@ -25,7 +25,7 @@
     // header.innerHTML = labels.instructions;
     allCellsCreatedInGrid = createGrid();
     // footer.innerHTML = labels.gameReady;
-    displayLabel("footer",labels.gameReady);
+    displayLabel("footer", labels.gameReady);
     highlightActiveCells(allCellsCreatedInGrid);
     setTimeout(() => clearStatusInGrid("active"), 1000);
     allowUserToClickCells();
@@ -37,7 +37,7 @@
     const letUserPlay = document.getElementById("playBtn");
 
     // header.innerHTML = labels.instructions;
-    displayLabel("header",labels.instructions);
+    displayLabel("header", labels.instructions);
     letUserPlay.addEventListener("click", function() {
       Game();
     });
@@ -56,6 +56,7 @@
       createCellsPositions.push(`${cellId}`);
       grid.appendChild(cell);
     }
+
     return createCellsPositions;
   }
 
@@ -63,15 +64,9 @@
     var cellToHighlight = [];
 
     cellsToHighlight = _.sampleSize(allCellsPositions, 6);
-
-    // for (let k = 0; k < cellsToHighlight.length; k++) {
-    //   cellToHighlight = document.getElementById(cellsToHighlight[k]);
-    //   cellToHighlight.classList.add("active");
-    // }
-    cellsToHighlight.map(function (cell) {
+    cellsToHighlight.map(function(cell) {
       document.getElementById(cell).classList.add("active");
     });
-
   }
 
   function clearStatusInGrid(cellStatus) {
@@ -84,16 +79,15 @@
       cellToClear.classList.remove(cellStatus);
     }
 
-    // footer.innerHTML = labels.gameRecall;
-    displayLabel("footer",labels.gameRecall);
+    displayLabel("footer", labels.gameRecall);
   }
 
   function deleteGrid() {
     correctChoice = 0;
     wrongChoice = 0;
-    // footer.innerHTML = "";
-    displayLabel("footer","");
-    
+
+    displayLabel("footer", "");
+
     for (
       let cellIdToDelete = 0;
       cellIdToDelete < totalNumberOfCells;
@@ -130,12 +124,14 @@
 
   function isCorrectCell(num) {
     const cellToHighlight = num.toString();
+    
     for (let j = 0; j < cellsToHighlight.length; j++) {
       if (cellToHighlight === cellsToHighlight[j]) {
         this.classList.add("correct");
         correctChoice++;
       }
     }
+
     if (!this.classList.contains("correct")) {
       this.classList.add("wrong");
       wrongChoice++;
@@ -143,14 +139,12 @@
     if (wrongChoice > 3) {
       disableCells();
       setTimeout(() => deleteGrid(), 2000);
-      // footer.innerHTML = labels.gameOver;
-      displayLabel("footer",labels.gameOver);
+      displayLabel("footer", labels.gameOver);
     }
     if (correctChoice === 6) {
       disableCells();
       setTimeout(() => deleteGrid(), 2000);
-      // footer.innerHTML = labels.gameWinner;
-      displayLabel("footer",labels.gameWinner);
+      displayLabel("footer", labels.gameWinner);
     }
   }
 })();
