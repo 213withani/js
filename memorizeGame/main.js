@@ -1,6 +1,6 @@
 (function() {
   let totalNumberOfCells = 25;
-  numberOfCellsToHighlight=6;
+  numberOfCellsToHighlight = 6;
 
   let cellsToHighlight = null;
 
@@ -8,7 +8,6 @@
   let correctChoice = 0;
 
   let activeCell = [];
-  let cellToClear = [];
 
   const labels = {
     instructions: "Memorize Game: You can only get 4 wrong answers.",
@@ -39,7 +38,6 @@
 
     displayLabel("header", labels.instructions);
     letUserPlay.addEventListener("click", function() {
-      
       Game();
     });
   }
@@ -64,13 +62,18 @@
   function highlightActiveCells(allCellsPositions) {
     var cellToHighlight = [];
 
-    cellsToHighlight = _.sampleSize(allCellsPositions, numberOfCellsToHighlight);
+    cellsToHighlight = _.sampleSize(
+      allCellsPositions,
+      numberOfCellsToHighlight
+    );
     cellsToHighlight.map(function(cell) {
       document.getElementById(cell).classList.add("active");
     });
   }
 
   function clearStatusInGrid(cellStatus) {
+    let cellToClear = [];
+
     for (
       let cellIdToClear = 0;
       cellIdToClear < totalNumberOfCells;
@@ -84,6 +87,7 @@
   }
 
   function deleteGrid() {
+    let cellToRemoveFromGrid = null;
     correctChoice = 0;
     wrongChoice = 0;
 
@@ -94,8 +98,8 @@
       cellIdToDelete < totalNumberOfCells;
       cellIdToDelete++
     ) {
-      cellToClear = document.getElementById(cellIdToDelete);
-      cellToClear.remove();
+      cellToRemoveFromGrid = document.getElementById(cellIdToDelete);
+      cellToRemoveFromGrid.remove();
     }
   }
 
@@ -126,11 +130,11 @@
   function isCorrectCell(num) {
     const cellToHighlight = num.toString();
 
-    cellsToHighlight.map((cell) => {
+    cellsToHighlight.map(cell => {
       if (cellToHighlight === cell) {
-            this.classList.add("correct");
-            correctChoice++;
-          }
+        this.classList.add("correct");
+        correctChoice++;
+      }
     });
 
     if (!this.classList.contains("correct")) {
