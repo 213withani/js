@@ -94,7 +94,10 @@
             x += dx;
             y += dy;
 
-            // Move the paddle only within the boundaries of the Canvas.
+            // Inside the draw() function, we will check if the left or right cursor keys are pressed when each frame is rendered.
+
+            // The paddleX position we're using will move between 0 on the left side of the Canvas 
+            // and canvas.width-paddleWidth on the right hand side,
             if (rightPressed && paddleX < canvas.width - paddleWidth) {
                 paddleX += 7;
             } else if (leftPressed && paddleX > 0) {
