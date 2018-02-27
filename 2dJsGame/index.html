@@ -43,6 +43,52 @@
         var rightPressed = false;
         var leftPressed = false;
 
+        // Bricks
+        // Here we've defined the number of rows and columns of bricks , their width and height, 
+        // the padding between the bricks so they won't touch each other and 
+        // a top and left offset so they won't start being drawn right from the edge of the Canvas.
+        var brickRowCount = 3;
+        var brickColumnCount = 5;
+        var brickWidth = 75;
+        var brickHeight = 20;
+        var brickPadding = 10;
+        var brickOffsetTop = 30;
+        var brickOffsetLeft = 30;
+
+        var bricks = [];
+        // Will loop through the rows and columns and create the new bricks. 
+        // Initialize 2d array to objects.
+        for (c = 0; c < brickColumnCount; c++) {
+            bricks[c] = [];
+            for (r = 0; r < brickRowCount; r++) {
+                // console.log(`${c}${r}`);
+                
+                bricks[c][r] = { x: 0, y: 0 };
+            }
+        }
+
+        function drawBricks() {
+            for (c = 0; c < brickColumnCount; c++) {
+                // 30,30 30,60 30,90
+                for (r = 0; r < brickRowCount; r++) {
+                    // Calculations that will work out the x and y position 
+                    // of each brick for each loop iteration.
+                    var brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
+                    // When c=1 and r=0 set x=30,y=30 
+                    // When r=1 is below 1 brick (30,60), when r=2 below 2 bricks (30,90),  ...
+                    var brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
+                    
+                    bricks[c][r].x = brickX;
+                    bricks[c][r].y = brickY;
+                    ctx.beginPath();
+                    ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                    ctx.fillStyle = "red";
+                    ctx.fill();
+                    ctx.closePath();
+                }
+            }
+        }
+
         //Repainted on every frame.
         function drawBall() {
             ctx.beginPath();
@@ -68,6 +114,7 @@
             // CanvasRenderingContext2D.clearRect() erasing any previously drawn content.
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+            drawBricks();
             drawBall();
             drawPaddle();
 
@@ -81,11 +128,12 @@
             // Reverse the movement of the ball.
             if (heightOfWall < ballRadius) {
                 dy = -dy;
-            } else if (heightOfWall > canvas.height - ballRadius) {
-                if (x > paddleX && x < paddleX + paddleWidth) {
+            } else if (heightOfWall > canvas.height - ballRadius) { // if ball goes over canvas bottom
+                // Check whether the center of the ball is between the left and right edges of the paddle.
+                if (x > paddleX && x < paddleX + paddleWidth) { // 
                     dy = -dy;
                 } else {
-                    alert("GAME OVER");
+                    console.log('GAME OVER');
                     document.location.reload();
                 }
             }
@@ -123,7 +171,7 @@
             }
         }
 
-        setInterval(draw, 10);
+        setInterval(draw, 1000);
     </script>
 
 </body>
