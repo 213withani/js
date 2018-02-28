@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Javascript</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/papercss@1.4.1/dist/paper.min.css">
 </head>
-<body>
+
+<body class="paper container">
     <header>
         <h1>Todo List</h1>
     </header>
-
-    <form id="todoForm" name="todoForm">
-        <input id="todoListInput" name="todoListInput" type="text" placeholder="Item">
-        <button id="createBtn" name="createBtn">Create</button>
-    </form>
-    <ul id="todoList"></ul>
-    <button id="deleteBtn" name="deleteBtn">Delete</button>
+        <form id="todoForm" name="todoForm">
+            <input id="todoListInput" name="todoListInput" type="text" placeholder="Item">
+            <button id="createBtn" name="createBtn">Create</button>
+        </form>
+        <ul id="todoList"></ul>
+        <button id="deleteBtn" name="deleteBtn">Delete</button>
+    
 </body>
 <script src="main.js"></script>
+
 </html>
