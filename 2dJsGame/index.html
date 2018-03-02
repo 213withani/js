@@ -61,9 +61,7 @@
         for (c = 0; c < brickColumnCount; c++) {
             bricks[c] = [];
             for (r = 0; r < brickRowCount; r++) {
-                // console.log(`${c}${r}`);
-                
-                bricks[c][r] = { x: 0, y: 0 };
+                bricks[c][r] = { x: 0, y: 0, status: 1 };
             }
         }
 
@@ -71,20 +69,22 @@
             for (c = 0; c < brickColumnCount; c++) {
                 // 30,30 30,60 30,90
                 for (r = 0; r < brickRowCount; r++) {
-                    // Calculations that will work out the x and y position 
-                    // of each brick for each loop iteration.
-                    var brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
-                    // When c=1 and r=0 set x=30,y=30 
-                    // When r=1 is below 1 brick (30,60), when r=2 below 2 bricks (30,90),  ...
-                    var brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
-                    
-                    bricks[c][r].x = brickX;
-                    bricks[c][r].y = brickY;
-                    ctx.beginPath();
-                    ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                    ctx.fillStyle = "red";
-                    ctx.fill();
-                    ctx.closePath();
+                    if (bricks[c][r].status == 1) {
+                        // Calculations that will work out the x and y position 
+                        // of each brick for each loop iteration.
+                        var brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
+                        // When c=1 and r=0 set x=30,y=30 
+                        // When r=1 is below 1 brick (30,60), when r=2 below 2 bricks (30,90),  ...
+                        var brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
+
+                        bricks[c][r].x = brickX;
+                        bricks[c][r].y = brickY;
+                        ctx.beginPath();
+                        ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                        ctx.fillStyle = "red";
+                        ctx.fill();
+                        ctx.closePath();
+                    }
                 }
             }
         }
@@ -117,6 +117,8 @@
             drawBricks();
             drawBall();
             drawPaddle();
+            collisionDetection();
+
 
             if (widthOfWall > canvasWidth || widthOfWall < ballRadius) {
                 dx = -dx;
@@ -171,7 +173,21 @@
             }
         }
 
-        setInterval(draw, 1000);
+        function collisionDetection() {
+            for (c = 0; c < brickColumnCount; c++) {
+                for (r = 0; r < brickRowCount; r++) {
+                    var b = bricks[c][r];
+                    if (b.status == 1) {
+                        if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
+                            dy = -dy;
+                            b.status = 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        setInterval(draw, 100);
     </script>
 
 </body>
