@@ -1,9 +1,7 @@
 (function() {
   let totalNumberOfCells = 25;
   numberOfCellsToHighlight = 6;
-
   let cellsToHighlight = null;
-
   let wrongChoice = 0;
   let correctChoice = 0;
 
@@ -23,6 +21,8 @@
 
   function Game() {
     let allCellsCreatedInGrid = [];
+    wrongChoice = 0;
+    correctChoice = 0;
 
     allCellsCreatedInGrid = createGrid();
     displayLabel("footer", labels.gameReady);
@@ -48,6 +48,7 @@
     let createCellsPositions = [];
 
     grid = document.querySelector(".grid");
+    grid.innerHTML = "";
 
     for (let cellId = 0; cellId < totalNumberOfCells; cellId++) {
       cell = document.createElement("div");
@@ -143,12 +144,10 @@
     }
     if (wrongChoice > 3) {
       disableCells();
-      setTimeout(() => deleteGrid(), 2000);
       displayLabel("footer", labels.gameOver);
     }
     if (correctChoice === 6) {
       disableCells();
-      setTimeout(() => deleteGrid(), 2000);
       displayLabel("footer", labels.gameWinner);
     }
   }
