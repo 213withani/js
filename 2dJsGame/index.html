@@ -55,6 +55,9 @@
         var brickOffsetTop = 30;
         var brickOffsetLeft = 30;
 
+        var score = 0;
+
+
         var bricks = [];
         // Will loop through the rows and columns and create the new bricks. 
         // Initialize 2d array to objects.
@@ -117,6 +120,7 @@
             drawBricks();
             drawBall();
             drawPaddle();
+            drawScore();
             collisionDetection();
 
 
@@ -156,6 +160,7 @@
         }
         document.addEventListener("keydown", keyDownHandler, false);
         document.addEventListener("keyup", keyUpHandler, false);
+        document.addEventListener("mousemove", mouseMoveHandler, false);
 
         function keyDownHandler(e) {
             if (e.keyCode == 39) {
@@ -181,13 +186,29 @@
                         if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
                             dy = -dy;
                             b.status = 0;
+                            score++;
+                            if (score == brickRowCount * brickColumnCount) {
+                                alert("YOU WIN, CONGRATULATIONS!");
+                                document.location.reload();
+                            }
                         }
                     }
                 }
             }
         }
 
-        setInterval(draw, 100);
+        function mouseMoveHandler(e) {
+            var relativeX = e.clientX - canvas.offsetLeft;
+            if (relativeX > 0 && relativeX < canvas.width) {
+                paddleX = relativeX - paddleWidth / 2;
+            }
+        }
+        function drawScore() {
+            ctx.font = "16px Arial";
+            ctx.fillStyle = "#0095DD";
+            ctx.fillText("Score: " + score, 8, 20);
+        }
+        setInterval(draw, 10);
     </script>
 
 </body>
