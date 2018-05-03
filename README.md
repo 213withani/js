@@ -19,3 +19,9 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_trans
 
 "The transform CSS property lets you rotate, scale, skew, or translate a given element. This is achieved by modifying the coordinate space of the CSS visual formatting model."
 https://developer.mozilla.org/en-US/docs/Web/CSS/transform
+
+
+# SPA: Single Page Application
+
+https://github.com/curran/screencasts/tree/gh-pages/navigation
+This links to a pretty good video explaining basic SPAs terms. https://www.youtube.com/watch?v=xN9QxPtK2LM&feature=youtu.be
