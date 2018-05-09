@@ -1,6 +1,6 @@
 # js
 
-#General
+# General
 https://stackoverflow.com/questions/476436/is-there-a-null-coalescing-operator-in-javascript
 
 Explains how boolean, some falsy values and || operator work together
