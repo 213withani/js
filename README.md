@@ -30,3 +30,8 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/transform
 
 https://github.com/curran/screencasts/tree/gh-pages/navigation
 This links to a pretty good video explaining basic SPAs terms. https://www.youtube.com/watch?v=xN9QxPtK2LM&feature=youtu.be
+
+# Jest Test
+
+Tutorial 101
+https://www.youtube.com/watch?v=4kNfeI37xu4&list=PLLnpHn493BHEB-YOl0APuQsrzlb3zbq3y
