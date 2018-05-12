@@ -1,5 +1,9 @@
 # js
 
+# Todo
+Redo using Vanilla JS and add mongodb
+https://www.youtube.com/watch?v=G0BzzuXS8gI
+
 # General
 https://stackoverflow.com/questions/476436/is-there-a-null-coalescing-operator-in-javascript
 
