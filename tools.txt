@@ -1,0 +1,3 @@
+➜  ~ vi .zshrc
+
+/Users/israel
