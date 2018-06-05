@@ -1,1 +1,9 @@
+
+#Util Libraries
 https://blog.bitsrc.io/11-javascript-utility-libraries-you-should-know-in-2018-3646fb31ade
+
+#Modular JavaScript book series
+https://ponyfoo.com/books
+
+#Modern JavaScript History Explained
+https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70
