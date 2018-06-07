@@ -7,3 +7,6 @@ https://ponyfoo.com/books
 
 #Modern JavaScript History Explained
 https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70
+
+#Deploy to github pages
+https://medium.freecodecamp.org/surge-vs-github-pages-deploying-a-create-react-app-project-c0ecbf317089
