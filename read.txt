@@ -10,3 +10,6 @@ https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosa
 
 #Deploy to github pages
 https://medium.freecodecamp.org/surge-vs-github-pages-deploying-a-create-react-app-project-c0ecbf317089
+
+# Errors
+https://codeburst.io/top-10-javascript-errors-from-1000-projects-and-how-to-avoid-them-2956ce008437
