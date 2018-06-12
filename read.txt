@@ -1,3 +1,6 @@
+Unrelated to JS
+AWS 
+https://www.airpair.com/aws/posts/building-a-scalable-web-app-on-amazon-web-services-p1
 
 #Util Libraries
 https://blog.bitsrc.io/11-javascript-utility-libraries-you-should-know-in-2018-3646fb31ade
