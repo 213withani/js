@@ -4,3 +4,6 @@ Ctrl xe
 /123
 shrit r
 ctrl + v
+
+History autosuggestions:
+https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
