@@ -1,7 +1,8 @@
 Unrelated to JS
 AWS 
 https://www.airpair.com/aws/posts/building-a-scalable-web-app-on-amazon-web-services-p1
-
+GraphQL
+https://medium.com/codingthesmartway-com-blog/creating-a-graphql-server-with-node-js-and-express-f6dddc5320e1
 
 #Util Libraries
 https://blog.bitsrc.io/11-javascript-utility-libraries-you-should-know-in-2018-3646fb31ade
