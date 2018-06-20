@@ -9,3 +9,6 @@ http://bluebirdjs.com/docs/api/promise.all.html
 Old but goodie, keep it hear until there is a batter article to read:
 
 https://blog.domenic.me/youre-missing-the-point-of-promises/
+
+This is way better and recent article:
+https://developers.google.com/web/fundamentals/primers/promises#whats-all-the-fuss-about
