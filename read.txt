@@ -7,8 +7,12 @@ https://medium.com/codingthesmartway-com-blog/creating-a-graphql-server-with-nod
 #Util Libraries
 https://blog.bitsrc.io/11-javascript-utility-libraries-you-should-know-in-2018-3646fb31ade
 
-NodeJS Environment vars
-https://codeburst.io/process-env-what-it-is-and-why-when-how-to-use-it-effectively-505d0b2831e7
+NodeJS 
+ Environment vars
+ https://codeburst.io/process-env-what-it-is-and-why-when-how-to-use-it-effectively-505d0b2831e7
+ 
+ Node Fetch
+ https://blogs.missouristate.edu/cio/2016/01/14/fetching-data-over-http-with-nodejs-using-node-fetch/
 
 #Modular JavaScript book series
 https://ponyfoo.com/books
