@@ -14,3 +14,14 @@ console.log(arr);
 // [10,20,30,40,50]
 
 ```
+
+https://lodash.com/docs/4.17.10#map
+
+```
+function square(n) {
+  return n * n;
+}
+ 
+_.map([4, 8], square);
+// => [16, 64]
+```
