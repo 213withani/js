@@ -40,5 +40,27 @@ Large proj, you ran of good class names quickly.
 
 css selector is global, hard to keep track
 
+Solutions:
+naming conventions,
+practice code review,
+and search code base thoroughly
 
-* 
+* Dead Code
+
+ Difficult to remove old css. It's dangerous to remove it.
+ 
+ # React
+ * Server and client. Not only in browser anymore.
+ * One way data flow model, simple structure than MVC
+ * Everything is a component. Encapsulates and makes them consistent, readable and maintainable.
+
+Abandon JS entirely and managing styles with JS instead. 
+
+# Radium library
+A toolset for managing inline styles with react.
+
+React built in inline styles support
+
+Most React apps are written in JSX. Creating markup (text) with javascript using html like syntax.
+
+React feature of groups of styles properties using JS Objects and use them as inline styles in a component using braces.
