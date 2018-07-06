@@ -77,5 +77,5 @@ Styles are isolated and encapsulated, much easier to change and maintain vs css.
 ## Radium features
 * Browser states ex :hover inside js object style
 * Media queries: Inside obj sytle
-* Style arrays: An array of styles objs style = {[styles.base, styles.base2]}
+* Style arrays: An array of styles objs style = {[styles.base, styles.base2]} kind of like class="btn btn-primary"
 React styles have to be a JS obj single level deep and flat
