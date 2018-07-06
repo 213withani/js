@@ -18,3 +18,8 @@ Use the overflow:visible; CSS declaration for the class' :hover selector.
 ## CSS Modules
 
 https://blog.logrocket.com/the-best-styling-in-react-tutorial-youve-ever-seen-676f1284b945
+
+# React Inline Styles 
+video
+React Inline Styles and ReactJS instead of CSS
+https://youtu.be/k3OF4A30jSQ
