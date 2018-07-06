@@ -23,3 +23,22 @@ https://blog.logrocket.com/the-best-styling-in-react-tutorial-youve-ever-seen-67
 video
 React Inline Styles and ReactJS instead of CSS
 https://youtu.be/k3OF4A30jSQ
+
+* Specificity Hell
+
+More specific rule: a {color: orange} vs .headerClass a {color: white}
+
+Moving components, specificity can create UI issues. A css senior can refactor with more general rules. 
+
+* Source Order Woes
+
+If two components have the same specificity, the last one to appear wins. In large apps this can easily happen.
+
+* Naming Collisions
+
+Large proj, you ran of good class names quickly.
+
+css selector is global, hard to keep track
+
+
+* 
