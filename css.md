@@ -1,6 +1,14 @@
 # This probably should be in css repo
 Initialize css repo so it can be used.
 
+# HTML and CSS
+http://howtocodeinhtml.com/index.html#toc
+
+# CSS Flexbox
+https://www.youtube.com/watch?v=k32voqQhODc
+
+# CSS Grid
+
 # Hover To View Hidden Text Overflow
 https://www.willmaster.com/library/web-development/hover-to-view-hidden-text-overflow.php
 
