@@ -25,3 +25,15 @@ function square(n) {
 _.map([4, 8], square);
 // => [16, 64]
 ```
+
+ # https://lodash.com/docs/#get
+
+_.get(object, path, [defaultValue])
+
+
+```
+var object = { 'a': [{ 'b': { 'c': 3 } }] };
+ 
+_.get(object, 'a[0].b.c');
+// => 3
+```
