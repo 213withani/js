@@ -1,8 +1,11 @@
 Unrelated to JS
+
+# Follow a PLAN to get rewarded
+
+https://medium.freecodecamp.org/how-i-doubled-my-salary-in-5-months-and-got-an-amazing-job-1110d1779e0b
+
 AWS 
 https://www.airpair.com/aws/posts/building-a-scalable-web-app-on-amazon-web-services-p1
-GraphQL
-https://medium.com/codingthesmartway-com-blog/creating-a-graphql-server-with-node-js-and-express-f6dddc5320e1
 
 #Util Libraries
 https://blog.bitsrc.io/11-javascript-utility-libraries-you-should-know-in-2018-3646fb31ade
@@ -26,6 +29,3 @@ https://medium.freecodecamp.org/surge-vs-github-pages-deploying-a-create-react-a
 # Errors
 https://codeburst.io/top-10-javascript-errors-from-1000-projects-and-how-to-avoid-them-2956ce008437
 
-Animation:
-
-https://uxdesign.cc/good-to-great-ui-animation-tips-7850805c12e5
