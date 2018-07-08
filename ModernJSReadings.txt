@@ -1,11 +1,9 @@
 # Modern JavaScript Explained For Dinosaurs
-
 https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70
 
-Best courses to learn Javascript in 2017
-
+# Best courses to learn Javascript in 2017
 https://codeburst.io/best-courses-to-learn-javascript-in-2017-fc3a254638cc
 
-# Follow a PLAN to get rewarded
+# Modular JavaScript book series
+https://ponyfoo.com/books
 
-https://medium.freecodecamp.org/how-i-doubled-my-salary-in-5-months-and-got-an-amazing-job-1110d1779e0b
