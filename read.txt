@@ -4,28 +4,3 @@ Unrelated to JS
 
 https://medium.freecodecamp.org/how-i-doubled-my-salary-in-5-months-and-got-an-amazing-job-1110d1779e0b
 
-AWS 
-https://www.airpair.com/aws/posts/building-a-scalable-web-app-on-amazon-web-services-p1
-
-#Util Libraries
-https://blog.bitsrc.io/11-javascript-utility-libraries-you-should-know-in-2018-3646fb31ade
-
-NodeJS 
- Environment vars
- https://codeburst.io/process-env-what-it-is-and-why-when-how-to-use-it-effectively-505d0b2831e7
- 
- Node Fetch
- https://blogs.missouristate.edu/cio/2016/01/14/fetching-data-over-http-with-nodejs-using-node-fetch/
-
-#Modular JavaScript book series
-https://ponyfoo.com/books
-
-#Modern JavaScript History Explained
-https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70
-
-#Deploy to github pages
-https://medium.freecodecamp.org/surge-vs-github-pages-deploying-a-create-react-app-project-c0ecbf317089
-
-# Errors
-https://codeburst.io/top-10-javascript-errors-from-1000-projects-and-how-to-avoid-them-2956ce008437
-
