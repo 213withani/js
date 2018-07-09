@@ -4,3 +4,6 @@ Unrelated to JS
 
 https://medium.freecodecamp.org/how-i-doubled-my-salary-in-5-months-and-got-an-amazing-job-1110d1779e0b
 
+# A Thorough Introduction to Distributed Systems
+
+https://hackernoon.com/a-thorough-introduction-to-distributed-systems-3b91562c9b3c
