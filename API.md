@@ -1,5 +1,5 @@
 # API
-What is an API: An interface that allows me to interface with so I can get what I need for my front end UI.
+What is an API: An application that allows me to interface with so I can get what I need for my front end UI.
 
 https://www.taniarascia.com/how-to-connect-to-an-api-with-javascript/
 https://www.robinwieruch.de/what-is-an-api-javascript/
