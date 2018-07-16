@@ -1,3 +1,6 @@
+# Object.assign vs spread operator
+https://medium.com/@corinnemariekelly/object-assign-vs-spread-operator-577c889dbadc
+
 # MVC
 
 Simple and to the point:
