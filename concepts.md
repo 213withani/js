@@ -39,3 +39,23 @@ Most web applications need to do some work asynchronously behind the scenes that
 
 “job queue” architecture. It consists of two components: a queue of “jobs” that need to be run and one or more job servers (often called “workers”) that run the jobs in the queue.
 
+We started with a simple FIFO queue though we upgraded to a priority queue to ensure that time-sensitive operations like sending password reset emails were completed ASAP.
+
+1. Full-text Search Service:
+The technology powering this functionality is typically referred to as “full-text search”, which leverages an inverted index to quickly look up documents that contain the query keywords. (ES,Solr)
+
+1. Services
+Once an app reaches a certain scale, there will likely be certain “services” that are carved out to run as separate applications.
+
+1. Data #AWSKinesis #Kafka #S3 #AWSRedshift #Oracle
+Almost every app these days, once it reaches a certain scale, leverages a data pipeline to ensure that data can be collected, stored, and analyzed.
+* The raw data as well as the final transformed/augmented data are saved to cloud storage. AWS Kinesis 
+* The transformed/augmented data is often loaded into a data warehouse for analysis. We use AWS Redshift, 
+
+1. Cloud storage
+You can use it to store and access more or less anything you’d store on a local file system with the benefits of being able to interact with it via a RESTful API over HTTP
+
+Amazon’s S3 offering is by far the most popular cloud storage available today and the one we rely on extensively here at Storyblocks to store our video, photo, and audio assets, our CSS and Javascript, our user event data and much more.
+
+1. CDN
+CDN stands for “Content Delivery Network” and the technology provides a way of serving assets such as static HTML, CSS, Javascript, and images over the web much faster than serving them from a single origin server. 
