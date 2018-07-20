@@ -2,6 +2,7 @@
 
 # JS Sessions using MDN lib
 https://stormpath.com/blog/everything-you-ever-wanted-to-know-about-node-dot-js-sessions
+https://lockmedown.com/securing-node-js-managing-sessions-express-js/
 
 # Tools
 
