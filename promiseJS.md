@@ -12,3 +12,6 @@ https://blog.domenic.me/youre-missing-the-point-of-promises/
 
 This is way better and recent article:
 https://developers.google.com/web/fundamentals/primers/promises#whats-all-the-fuss-about
+
+
+https://hackernoon.com/understanding-promises-in-javascript-13d99df067c1
