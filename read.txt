@@ -24,3 +24,6 @@ https://medium.com/bento-systems/from-web-development-to-software-development-ho
 
 # SQL history
 https://blog.timescale.com/why-sql-beating-nosql-what-this-means-for-future-of-data-time-series-database-348b777b847a
+
+# a-study-plan-to-cure-javascript-fatigue
+https://medium.freecodecamp.org/a-study-plan-to-cure-javascript-fatigue-8ad3a54f2eb1
