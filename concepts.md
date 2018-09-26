@@ -1,3 +1,22 @@
+# memoization
+https://codeburst.io/understanding-memoization-in-3-minutes-2e58daf33a19
+```
+function memo(func){
+  var cache = {};
+    return function(){
+      var key = JSON.stringify(arguments);
+      if (cache[key]){
+        console.log(cache)
+        return cache[key];
+      }
+      else{
+        val = func.apply(null, arguments);
+        cache[key] = val;
+        return val; 
+      }
+  }
+}
+```
 # Go over, read and write about health endpoints
 
 # Object.assign vs spread operator
