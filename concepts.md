@@ -1,9 +1,9 @@
 # Prototype
 https://youtu.be/XskMWBXNbp0
 
-*. Animal class with methods. 
-*  If you create a lot of instances, it won't be efficient. Separate methods to their own function.
-*  Having a seprate function for methods is inconvenient if we need to keep adding class methods. Try Object.create
+* Animal class with methods. 
+* If you create a lot of instances, it won't be efficient. Separate methods to their own function.
+* Having a seprate function for methods is inconvenient if we need to keep adding class methods. Try Object.create
 
 
 # memoization
